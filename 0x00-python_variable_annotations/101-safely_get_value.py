@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Type-annotated safely_get_value function"""
 from typing import Any, Mapping, TypeVar, Union
+
+
 T = TypeVar('T')
 
 
