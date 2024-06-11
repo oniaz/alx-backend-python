@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 """Defines an asynchronous generator that yields random float numbers."""
-import asyncio
-import random
-from typing import Generator
+from typing import List
 
 async_generator = __import__('0-async_generator').async_generator
 
 
-async def async_comprehension() -> Generator[float, None, None]:
+async def async_comprehension() -> List[float]:
     """
     Asynchronously generates a list of random float numbers.
 
     Returns:
-        Generator[float, None, None]:
-                A generator yielding random float numbers.
+        List[float]: A list of random float numbers.
     """
     return [value async for value in async_generator()]
