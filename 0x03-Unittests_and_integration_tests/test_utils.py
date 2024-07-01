@@ -7,7 +7,6 @@ import unittest
 from typing import Any, Dict, Tuple
 from parameterized import parameterized
 from utils import access_nested_map
-# access_nested_map = __import__('utils').access_nested_map
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -26,6 +25,20 @@ class TestAccessNestedMap(unittest.TestCase):
         Test access_nested_map with various nested map and path combinations
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
+
+    @parameterized.expand([
+        ({}, ("a",), "'a'"),
+        ({"a": 1}, ("a", "b"), "'b'")
+    ])
+    def test_access_nested_map_exception(
+            self, nested_map: Dict, path: Tuple, exception_msg: str) -> None:
+        """
+        Test access_nested_map raises KeyError with the expected exception
+        message
+        """
+        with self.assertRaises(KeyError) as cm:
+            access_nested_map(nested_map, path)
+        self.assertEqual(str(cm.exception), exception_msg)
 
 
 if __name__ == '__main__':
