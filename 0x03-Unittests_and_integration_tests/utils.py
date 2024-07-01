@@ -1,7 +1,3 @@
-
-Hey, did you just copy something?
-Heads up, your clipboard was just accessed from this website. Be sure you trust the owner before pasting this someplace you don’t want it. Like a terminal or an email to your boss.
-Disable this warning for this site
 #!/usr/bin/env python3
 """Generic utilities for github org client.
 """
